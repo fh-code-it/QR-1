@@ -10,11 +10,16 @@
 <style>
     body {
         margin: 0;
-        height: 100vh;
+        min-height: 100vh;
         background: #050011;
         font-family: 'Orbitron', sans-serif;
         color: #00faff;
-        overflow: hidden;
+        overflow-x: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
     }
 
     .scanlines {
@@ -34,36 +39,30 @@
     }
 
     .container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+        max-width: 90%;
         animation: fadeIn 1.5s ease-out forwards;
     }
 
     h1 {
-        font-size: 48px;
+        font-size: clamp(2rem, 8vw, 4rem); /* taille responsive */
         text-shadow: 0 0 15px #00faff;
         animation: glitch 2s infinite;
+        margin-bottom: 20px;
     }
 
-    @keyframes glitch {
-        0% { text-shadow: 2px 0 red, -2px 0 blue; }
-        20% { text-shadow: -2px 0 red, 2px 0 blue; }
-        40% { text-shadow: 1px 0 red, -1px 0 blue; }
-        60% { text-shadow: 3px 0 red, -3px 0 blue; }
-        100% { text-shadow: 0 0 12px #00faff; }
+    p {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        line-height: 1.5;
+        margin-bottom: 30px;
     }
 
     .btn {
         font-family: 'Montserrat', sans-serif;
         display: inline-block;
-        padding: 15px 30px;
-        margin-top: 40px;
+        padding: clamp(10px, 2vw, 20px) clamp(20px, 5vw, 40px);
         background: linear-gradient(90deg, #00faff, #0077ff);
         color: black;
-        font-size: 18px;
+        font-size: clamp(16px, 2vw, 18px);
         border-radius: 6px;
         text-decoration: none;
         font-weight: 600;
@@ -76,9 +75,31 @@
         transform: scale(1.05);
     }
 
+    @keyframes glitch {
+        0% { text-shadow: 2px 0 red, -2px 0 blue; }
+        20% { text-shadow: -2px 0 red, 2px 0 blue; }
+        40% { text-shadow: 1px 0 red, -1px 0 blue; }
+        60% { text-shadow: 3px 0 red, -3px 0 blue; }
+        100% { text-shadow: 0 0 12px #00faff; }
+    }
+
     @keyframes fadeIn {
-        from { opacity: 0; transform: translate(-50%, -60%); }
-        to { opacity: 1; transform: translate(-50%, -50%); }
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Media queries pour petits écrans */
+    @media (max-width: 500px) {
+        h1 {
+            font-size: 2.2rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .btn {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
     }
 </style>
 </head>
@@ -86,9 +107,8 @@
 <body>
 
 <div class="container">
-    <h1> 💻 FH_CYBERHUB_</h1>
+    <h1>💻 FH_CYBERHUB_</h1>
     <p>Bienvenue dans l'espace FH de sensibilisation cyber. Vous pouvez continuer… si vous l'osez.</p>
-
     <a class="btn" href="4.awareness-QR.html">Le Quishing</a>
 </div>
 
@@ -96,4 +116,6 @@
 
 </body>
 </html>
+
+
 
