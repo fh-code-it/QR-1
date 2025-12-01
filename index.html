@@ -51,7 +51,7 @@ function typeLine() {
     if (i < lines.length) {
         document.getElementById("console").innerHTML += "> " + lines[i] + "\n";
         i++;
-        setTimeout(typeLine, 500);
+        setTimeout(typeLine, 600);
     } else {
         // Ici on renvoie vers la page Rickroll
         setTimeout(() => window.location.href = "2.rickroll.html", 1200);
@@ -62,6 +62,7 @@ typeLine();
 
 </body>
 </html>
+
 
 
 
