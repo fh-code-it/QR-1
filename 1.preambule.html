@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Check</title>
+
+<style>
+    body {
+        background: #000;
+        color: #00e1ff;
+        font-family: "Courier New", monospace;
+        font-size: 18px;
+        padding: 40px;
+    }
+
+    #console {
+        white-space: pre-line;
+        line-height: 1.6;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        background: #00e1ff;
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div id="console"></div>
+<script>
+const lines = [
+    "Initialisation du système...",
+    "Vérification du QR Code scanné...",
+    "Analyse des métadonnées...",
+    "Connexion au serveur de sécurité...",
+    "Alerte : QR Code non signé.",
+    "Redirection vers la page de sécurité..."
+];
+
+let i = 0;
+function typeLine() {
+    if (i < lines.length) {
+        document.getElementById("console").innerHTML += "> " + lines[i] + "\n";
+        i++;
+        setTimeout(typeLine, 900);
+    } else {
+        // Ici on renvoie vers la page Rickroll
+        setTimeout(() => window.location.href = "2.rickroll.html", 1200);
+    }
+}
+typeLine();
+</script>
+
+</body>
+</html>
